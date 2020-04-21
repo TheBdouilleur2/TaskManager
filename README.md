@@ -1,3 +1,3 @@
 #TaskManager
 
-This is a little task manager using **taskwarrior**
+This is a little task manager using **json**
