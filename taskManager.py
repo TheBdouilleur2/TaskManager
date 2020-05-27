@@ -36,10 +36,9 @@ def getLastID():
     lastID = fileContent[0]["lastID"]
     return lastID
     
-"""
-Ajoute une tache dans le fichier json
-@param params un dictionnaire contenant les parametres à passer.
-"""
+
+#Ajoute une tache dans le fichier json
+#@param params un dictionnaire contenant les parametres #à passer.
 def addTask(name, **params):
     lastID = getLastID()
     task = {"ID": lastID + 1, "name":name}

@@ -1,20 +1,16 @@
 [
     {
-        "lastID": 3,
+        "lastID": 2,
         "ID": 0
     },
     {
         "ID": 1,
-        "name": "Test",
+        "name": "Ajouter champ online pour projets",
         "project": "JEsite"
     },
     {
         "ID": 2,
-        "name": "Test 2"
-    },
-    {
-        "ID": 3,
-        "name": "Test des parametres",
+        "name": "Ajouter articles",
         "project": "JEsite"
     }
 ]
