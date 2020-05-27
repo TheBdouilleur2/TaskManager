@@ -1,1 +1,4 @@
 tasks.json
+Dotask.code-workspace
+__pycache__/*
+.github/*
