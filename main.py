@@ -1,15 +1,20 @@
-import taskManager as tM
+import task_manager as tM
 import eel
 
 
 eel.init('front', allowed_extensions=['.js', '.html'])
 
-@eel.expose                         # Expose this functiocompagnon/stats/n to Javascript
-def say_hello_py(x):
-    print('Hello from %s' % x)
+@eel.expose                      
+def createTask(name, **params):
+    tM.addTask(name, **params)
+    print(f"Tache '{name}' créée avec success.")
 
-say_hello_py('Python World!')
-eel.say_hello_js('Python World!')   # Call a Javascript function
+@eel.expose
+def showTasks():  
+    tasks = tM.getTasks()
+    tasks = tasks[1:]
+    for task in tasks:
+        eel.addTaskTable(task)
 
-eel.start('index.html')             # Start (this blocks and enters loop)
+eel.start('index.html', geometry={'size': (200, 100), 'position': (300, 50)})             # Start (this blocks and enters loop)
 

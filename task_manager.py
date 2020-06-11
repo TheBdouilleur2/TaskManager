@@ -72,3 +72,5 @@ def deleteTask(ID):
         i += 1
     tasks[0]["lastID"] -= 1
     writeTasks(tasks)
+
+
