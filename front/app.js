@@ -1,16 +1,19 @@
-eel.expose(addTaskTable); 
+eel.expose(addTaskElement);
 
-function addTaskTable(task) {
-    li = document.createElement("li");
-    li.innerHTML = task["name"];
+let trash = "<svg class='bi bi-trash-fill remove' width='1em' height='1em' viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg' ><path fill-rule='evenodd' d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z'/></svg>" 
+
+function addTaskElement(task) {
+    let li = document.createElement("li")
+    li.innerHTML = task["name"] + trash
     li.classList.add("task")
-    document.getElementById("TaskList").appendChild(li)
+    li.id = task["ID"]
+    $("#TaskList").prepend(li)
 }
 
 eel.showTasks();
 
 let input = document.getElementById("task_name")
-document.getElementById("new_task").addEventListener("click", function (e){
+$("#new_task").click(function (e){
     e.preventDefault;
     let taskName = input.value
     console.log(taskName);
@@ -18,8 +21,14 @@ document.getElementById("new_task").addEventListener("click", function (e){
     input.value = ""
 
     li = document.createElement("li");
-    li.innerHTML = taskName;
+    li.innerHTML = taskName + trash;
     li.classList.add("task")
-    document.getElementById("TaskList").appendChild(li)
+    $("#TaskList").prepend(li)
     return false;
+})
+
+$(".remove").click(function(e){
+    e.preventDefault()
+    
+    return false
 })
